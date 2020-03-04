@@ -107,7 +107,7 @@ EOF
 # 第三方插件选择:
 cat >> .config <<EOF
 CONFIG_PACKAGE_luci-app-serverchan=y #微信推送
-# CONFIG_PACKAGE_luci-app-openclash=y #OpenClash客户端
+CONFIG_PACKAGE_luci-app-openclash=y #OpenClash客户端
 # CONFIG_PACKAGE_luci-app-smartinfo=y #磁盘健康监控
 EOF
 
@@ -129,6 +129,7 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_kcptun=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_haproxy=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
+CONFIG_PACKAGE_luci-app-ssr-plus=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
@@ -155,32 +156,32 @@ EOF
 
 # 常用LuCI插件(禁用):
 cat >> .config <<EOF
-# CONFIG_PACKAGE_luci-app-smartdns is not set #smartdnsDNS服务
-# CONFIG_PACKAGE_luci-app-adguardhome is not set #ADguardHome去广告服务
-# CONFIG_PACKAGE_luci-app-unblockneteasemusic-go is not set #解锁网易云灰色歌曲
-# CONFIG_PACKAGE_luci-app-xlnetacc is not set #迅雷快鸟
-# CONFIG_PACKAGE_luci-app-usb-printer is not set #USB打印机
-# CONFIG_PACKAGE_luci-app-mwan3helper is not set #多拨负载均衡
-# CONFIG_PACKAGE_luci-app-mwan3 is not set #多线多拨
-# CONFIG_PACKAGE_luci-app-hd-idle is not set #磁盘休眠
-# CONFIG_PACKAGE_luci-app-wrtbwmon is not set #实时流量监测
+CONFIG_PACKAGE_luci-app-smartdns=y #smartdnsDNS服务
+CONFIG_PACKAGE_luci-app-adguardhome=y #ADguardHome去广告服务
+CONFIG_PACKAGE_luci-app-unblockneteasemusic-go=y #解锁网易云灰色歌曲
+CONFIG_PACKAGE_luci-app-xlnetacc=y#迅雷快鸟
+CONFIG_PACKAGE_luci-app-usb-printer=y#USB打印机
+CONFIG_PACKAGE_luci-app-mwan3helper=y#多拨负载均衡
+CONFIG_PACKAGE_luci-app-mwan3=y多线多拨
+CONFIG_PACKAGE_luci-app-hd-idle=y #磁盘休眠
+CONFIG_PACKAGE_luci-app-wrtbwmon=y#实时流量监测
 #
 # passwall相关(禁用):
 #
 #
 # VPN相关插件(禁用):
 #
-# CONFIG_PACKAGE_luci-app-ipsec-vpnserver-manyusers is not set #ipsec VPN服务
-# CONFIG_PACKAGE_luci-app-zerotier is not set #Zerotier内网穿透
-# CONFIG_PACKAGE_luci-app-pppoe-relay is not set #PPPoE穿透
-# CONFIG_PACKAGE_luci-app-pppoe-server is not set #PPPoE服务器
-# CONFIG_PACKAGE_luci-app-pptp-vpnserver-manyusers is not set #PPTP VPN 服务器
-# CONFIG_PACKAGE_luci-app-trojan-server is not set #Trojan服务器
-# CONFIG_PACKAGE_luci-app-v2ray-server is not set #V2ray服务器
-# CONFIG_PACKAGE_luci-app-brook-server is not set #brook服务端
-# CONFIG_PACKAGE_luci-app-ssr-libev-server is not set #ssr-libev服务端
-# CONFIG_PACKAGE_luci-app-ssr-python-pro-server is not set #ssr-python服务端
-# CONFIG_PACKAGE_luci-app-kcptun is not set #Kcptun客户端
+CONFIG_PACKAGE_luci-app-ipsec-vpnserver-manyusers=y #ipsec VPN服务
+CONFIG_PACKAGE_luci-app-zerotier=y #Zerotier内网穿透
+CONFIG_PACKAGE_luci-app-pppoe-relay=y #PPPoE穿透
+CONFIG_PACKAGE_luci-app-pppoe-server=y #PPPoE服务器
+CONFIG_PACKAGE_luci-app-pptp-vpnserver-manyusers=y #PPTP VPN 服务器
+CONFIG_PACKAGE_luci-app-trojan-server is=y#Trojan服务器
+CONFIG_PACKAGE_luci-app-v2ray-server is=y#V2ray服务器
+CONFIG_PACKAGE_luci-app-brook-server is=y#brook服务端
+CONFIG_PACKAGE_luci-app-ssr-libev-server=y#ssr-libev服务端
+CONFIG_PACKAGE_luci-app-ssr-python-pro-server=y#ssr-python服务端
+CONFIG_PACKAGE_luci-app-kcptun=y #Kcptun客户端
 #
 # 文件共享相关(禁用):
 #
