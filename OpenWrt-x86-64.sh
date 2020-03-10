@@ -15,6 +15,7 @@ sed -i 's/o.default = "admin"/o.default = ""/g' lienol/luci-app-passwall/luasrc/
 
 # 添加第三方软件包
 git clone https://github.com/vernesong/OpenClash package/OpenClash
+git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
 git clone https://github.com/kang-mk/luci-app-serverchan package/luci-app-serverchan
 git clone https://github.com/kang-mk/luci-app-smartinfo package/luci-app-smartinfo
 
@@ -96,19 +97,19 @@ EOF
 # EOF
 
 # USB3.0支持:
-# cat >> .config <<EOF
-# CONFIG_PACKAGE_kmod-usb-ohci=y
-# CONFIG_PACKAGE_kmod-usb-ohci-pci=y
-# CONFIG_PACKAGE_kmod-usb2=y
-# CONFIG_PACKAGE_kmod-usb2-pci=y
-# CONFIG_PACKAGE_kmod-usb3=y
-# EOF
+ cat >> .config <<EOF
+ CONFIG_PACKAGE_kmod-usb-ohci=y
+ CONFIG_PACKAGE_kmod-usb-ohci-pci=y
+ CONFIG_PACKAGE_kmod-usb2=y
+ CONFIG_PACKAGE_kmod-usb2-pci=y
+ CONFIG_PACKAGE_kmod-usb3=y
+ EOF
 
 # 第三方插件选择:
 cat >> .config <<EOF
 CONFIG_PACKAGE_luci-app-serverchan=y #微信推送
 CONFIG_PACKAGE_luci-app-openclash=y #OpenClash客户端
-# CONFIG_PACKAGE_luci-app-smartinfo=y #磁盘健康监控
+CONFIG_PACKAGE_luci-app-smartinfo=y #磁盘健康监控
 EOF
 
 # Passwall插件:
@@ -186,7 +187,7 @@ CONFIG_PACKAGE_luci-app-kcptun=y #Kcptun客户端
 # 文件共享相关(禁用):
 #
 # CONFIG_PACKAGE_luci-app-aria2 is not set #Aria2离线下载
-# CONFIG_PACKAGE_luci-app-minidlna is not set #miniDLNA服务
+CONFIG_PACKAGE_luci-app-minidlna=y #miniDLNA服务
 # CONFIG_PACKAGE_luci-app-kodexplorer is not set #可到私有云
 # CONFIG_PACKAGE_luci-app-filebrowser is not set #File Browser私有云
 # CONFIG_PACKAGE_luci-app-fileassistant is not set #文件助手
