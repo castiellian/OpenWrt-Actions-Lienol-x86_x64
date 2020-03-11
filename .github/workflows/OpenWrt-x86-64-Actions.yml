@@ -40,7 +40,7 @@ env:
   REPO_BRANCH: dev-19.07
   DIY_SH: OpenWrt-x86-64.sh
   FREE_UP_DISK: false
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
