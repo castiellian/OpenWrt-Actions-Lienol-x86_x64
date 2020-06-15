@@ -93,7 +93,7 @@ jobs:
       run: cd openwrt && ./scripts/feeds install -a
 
     - name: 创建自定义配置文件 - OpenWrt-x86-64
-     run: |
+      run: |
         [ -e files ] && mv files openwrt/files
         chmod +x $DIY_SH
         cd openwrt
