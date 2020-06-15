@@ -417,11 +417,11 @@ cat >> .#CONFIG <<EOF
 # VPN相关插件(禁用):
 #
 #CONFIG_PACKAGE_luci-app-ipsec-vpnserver-manyusers=y #ipsec VPN服务
-#CONFIG_PACKAGE_luci-app-zerotier=y #Zerotier内网穿透
+CONFIG_PACKAGE_luci-app-zerotier=y
 #CONFIG_PACKAGE_luci-app-pppoe-relay=y #PPPoE穿透
 #CONFIG_PACKAGE_luci-app-pppoe-server=y #PPPoE服务器
 #CONFIG_PACKAGE_luci-app-pptp-vpnserver-manyusers=y #PPTP VPN 服务器
-#CONFIG_PACKAGE_luci-app-trojan-server is=y#Trojan服务器
+CONFIG_PACKAGE_luci-app-trojan-server is=y
 #CONFIG_PACKAGE_luci-app-v2ray-server is=y#V2ray服务器
 #CONFIG_PACKAGE_luci-app-brook-server is=y#brook服务端
 #CONFIG_PACKAGE_luci-app-ssr-libev-server=y#ssr-libev服务端
