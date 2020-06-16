@@ -14,8 +14,10 @@ sed -i 's/o.default = "admin"/o.default = ""/g' lienol/luci-app-passwall/luasrc/
 # 添加第三方软件包
 git clone https://github.com/vernesong/OpenClash package/OpenClash
 git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
-git clone https://github.com/kang-mk/luci-app-serverchan package/luci-app-serverchan
+git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
+git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 git clone https://github.com/kang-mk/luci-app-smartinfo package/luci-app-smartinfo
+git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
 
 # 创建自定义配置文件 - OpenWrt-x86-64
 
@@ -351,9 +353,9 @@ EOF
 
 # 第三方插件选择:
 cat >> .#CONFIG <<EOF
-#CONFIG_PACKAGE_luci-app-serverchan=y #微信推送
-#CONFIG_PACKAGE_luci-app-openclash=y #OpenClash客户端
-#CONFIG_PACKAGE_luci-app-smartinfo=y #磁盘健康监控
+CONFIG_PACKAGE_luci-app-serverchan=y
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-smartinfo=y
 EOF
 
 # Passwall插件:
@@ -374,59 +376,59 @@ cat >> .#CONFIG <<EOF
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_haproxy=y
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks=y
 #CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
-#CONFIG_PACKAGE_luci-app-ssr-plus=y
-#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
-#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
-#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
-#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
-#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
-#CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
-#CONFIG_PACKAGE_kcptun-client=y
-#CONFIG_PACKAGE_chinadns-ng=y
-#CONFIG_PACKAGE_haproxy=y
-#CONFIG_PACKAGE_v2ray=y
-#CONFIG_PACKAGE_v2ray-plugin=y
-#CONFIG_PACKAGE_simple-obfs=y
-#CONFIG_PACKAGE_trojan=y
-#CONFIG_PACKAGE_brook=y
-#CONFIG_PACKAGE_ipt2socks=y
-#CONFIG_PACKAGE_shadowsocks-libev-#CONFIG=y
-#CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
-#CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
-#CONFIG_PACKAGE_shadowsocksr-libev-alt=y
-#CONFIG_PACKAGE_shadowsocksr-libev-ssr-local=y
+CONFIG_PACKAGE_luci-app-ssr-plus=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
+CONFIG_PACKAGE_kcptun-client=y
+CONFIG_PACKAGE_chinadns-ng=y
+CONFIG_PACKAGE_haproxy=y
+CONFIG_PACKAGE_v2ray=y
+CONFIG_PACKAGE_v2ray-plugin=y
+CONFIG_PACKAGE_simple-obfs=y
+CONFIG_PACKAGE_trojan=y
+CONFIG_PACKAGE_brook=y
+CONFIG_PACKAGE_ipt2socks=y
+CONFIG_PACKAGE_shadowsocks-libev-#CONFIG=y
+CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
+CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
+CONFIG_PACKAGE_shadowsocksr-libev-alt=y
+CONFIG_PACKAGE_shadowsocksr-libev-ssr-local=y
 EOF
 
 # 常用LuCI插件(禁用):
 cat >> .#CONFIG <<EOF
-#CONFIG_PACKAGE_luci-app-smartdns=y #smartdnsDNS服务
-#CONFIG_PACKAGE_luci-app-adguardhome=y #ADguardHome去广告服务
-#CONFIG_PACKAGE_luci-app-unblockneteasemusic-go=y #解锁网易云灰色歌曲
-#CONFIG_PACKAGE_luci-app-xlnetacc=y#迅雷快鸟
-#CONFIG_PACKAGE_luci-app-usb-printer=y#USB打印机
-#CONFIG_PACKAGE_luci-app-mwan3helper=y#多拨负载均衡
-#CONFIG_PACKAGE_luci-app-mwan3=y多线多拨
-#CONFIG_PACKAGE_luci-app-hd-idle=y #磁盘休眠
-#CONFIG_PACKAGE_luci-app-wrtbwmon=y#实时流量监测
+CONFIG_PACKAGE_luci-app-smartdns=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_luci-app-unblockneteasemusic-go=y
+CONFIG_PACKAGE_luci-app-xlnetacc=y
+CONFIG_PACKAGE_luci-app-usb-printer=y
+CONFIG_PACKAGE_luci-app-mwan3helper=y
+CONFIG_PACKAGE_luci-app-mwan3=y
+CONFIG_PACKAGE_luci-app-hd-idle=y
+CONFIG_PACKAGE_luci-app-wrtbwmon=y
 #
 # passwall相关(禁用):
 #
 #
 # VPN相关插件(禁用):
 #
-#CONFIG_PACKAGE_luci-app-ipsec-vpnserver-manyusers=y #ipsec VPN服务
+CONFIG_PACKAGE_luci-app-ipsec-vpnserver-manyusers=y
 CONFIG_PACKAGE_luci-app-zerotier=y
-#CONFIG_PACKAGE_luci-app-pppoe-relay=y #PPPoE穿透
-#CONFIG_PACKAGE_luci-app-pppoe-server=y #PPPoE服务器
-#CONFIG_PACKAGE_luci-app-pptp-vpnserver-manyusers=y #PPTP VPN 服务器
+CONFIG_PACKAGE_luci-app-pppoe-relay=y
+CONFIG_PACKAGE_luci-app-pppoe-server=y
+CONFIG_PACKAGE_luci-app-pptp-vpnserver-manyusers=y
 CONFIG_PACKAGE_luci-app-trojan-server is=y
-#CONFIG_PACKAGE_luci-app-v2ray-server is=y#V2ray服务器
-#CONFIG_PACKAGE_luci-app-brook-server is=y#brook服务端
-#CONFIG_PACKAGE_luci-app-ssr-libev-server=y#ssr-libev服务端
-#CONFIG_PACKAGE_luci-app-ssr-python-pro-server=y#ssr-python服务端
-#CONFIG_PACKAGE_luci-app-kcptun=y #Kcptun客户端
+CONFIG_PACKAGE_luci-app-v2ray-server is=y
+CONFIG_PACKAGE_luci-app-brook-server is=y
+CONFIG_PACKAGE_luci-app-ssr-libev-server=y
+CONFIG_PACKAGE_luci-app-ssr-python-pro-server=y#
+CONFIG_PACKAGE_luci-app-kcptun=y
 #
 # 文件共享相关(禁用):
 #
@@ -443,23 +445,23 @@ EOF
 
 # 常用LuCI插件(启用):
 cat >> .#CONFIG <<EOF
-#CONFIG_PACKAGE_luci-app-adbyby-plus=y #adbyby去广告
-#CONFIG_PACKAGE_luci-app-webadmin=y #Web管理页面设置
-#CONFIG_PACKAGE_luci-app-filetransfer=y #系统-文件传输
-#CONFIG_PACKAGE_luci-app-autoreboot=y #定时重启
-#CONFIG_PACKAGE_luci-app-frpc=y #Frp内网穿透
-#CONFIG_PACKAGE_luci-app-upnp=y #通用即插即用UPnP(端口自动转发)
-#CONFIG_PACKAGE_luci-app-softethervpn=y #SoftEtherVPN服务器
-#CONFIG_DEFAULT_luci-app-vlmcsd=y #KMS激活服务器
-#CONFIG_PACKAGE_luci-app-sqm=y #SQM智能队列管理
-#CONFIG_PACKAGE_luci-app-ddns=y #DDNS服务
-#CONFIG_PACKAGE_luci-app-wol=y #网络唤醒
-#CONFIG_PACKAGE_luci-app-control-mia=y #时间控制
-#CONFIG_PACKAGE_luci-app-control-timewol=y #定时唤醒
-#CONFIG_PACKAGE_luci-app-control-webrestriction=y #访问限制
-#CONFIG_PACKAGE_luci-app-control-weburl=y #网址过滤
-#CONFIG_PACKAGE_luci-app-flowoffload=y #Turbo ACC 网络加速
-#CONFIG_PACKAGE_luci-app-nlbwmon=y #宽带流量监控
+CONFIG_PACKAGE_luci-app-adbyby-plus=y
+CONFIG_PACKAGE_luci-app-webadmin=y
+CONFIG_PACKAGE_luci-app-filetransfer=y
+CONFIG_PACKAGE_luci-app-autoreboot=y
+CONFIG_PACKAGE_luci-app-frpc=y
+CONFIG_PACKAGE_luci-app-upnp=y
+CONFIG_PACKAGE_luci-app-softethervpn=y
+CONFIG_DEFAULT_luci-app-vlmcsd=y
+CONFIG_PACKAGE_luci-app-sqm=y
+CONFIG_PACKAGE_luci-app-ddns=y
+CONFIG_PACKAGE_luci-app-wol=y
+CONFIG_PACKAGE_luci-app-control-mia=y
+CONFIG_PACKAGE_luci-app-control-timewol=y
+CONFIG_PACKAGE_luci-app-control-webrestriction=y
+CONFIG_PACKAGE_luci-app-control-weburl=y
+CONFIG_PACKAGE_luci-app-flowoffload=y
+CONFIG_PACKAGE_luci-app-nlbwmon=y
 EOF
 
 # LuCI主题:
@@ -499,7 +501,7 @@ cat >> .#CONFIG <<EOF
 #CONFIG_PACKAGE_ddns-scripts_godaddy.com-v1=y
 #CONFIG_PACKAGE_ddns-scripts_no-ip_com=y
 #CONFIG_PACKAGE_ddns-scripts_route53-v1=y
-#CONFIG_PACKAGE_iperf3=y
+CONFIG_PACKAGE_iperf3=y
 #CONFIG_PACKAGE_kmod-crypto-acompress=y
 #CONFIG_PACKAGE_kmod-crypto-authenc=y
 #CONFIG_PACKAGE_kmod-crypto-cbc=y
