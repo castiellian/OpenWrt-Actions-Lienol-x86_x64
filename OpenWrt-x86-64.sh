@@ -21,8 +21,8 @@ git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
 
 # 创建自定义配置文件 - OpenWrt-x86-64
 
-rm -f ./.#CONFIG*
-touch ./.#CONFIG
+rm -f ./.CONFIG*
+touch ./.CONFIG
 
 #
 # ========================固件定制部分========================
@@ -40,7 +40,7 @@ touch ./.#CONFIG
 # 
 #          =========================================
 #         |  # 取消编译VMware镜像:                   |
-#         |  cat >> .#CONFIG <<EOF                   |
+#         |  cat >> .CONFIG <<EOF                   |
 #         |  # #CONFIG_VMDK_IMAGES is not set        |
 #         |  EOF                                    |
 #          =========================================
@@ -59,7 +59,7 @@ touch ./.#CONFIG
 
 # 编译x64固件:
 
-cat >> .#CONFIG <<EOF
+cat >> .CONFIG <<EOF
 CONFIG_TARGET_x86=y
 CONFIG_TARGET_x86_64=y
 CONFIG_TARGET_x86_64_Generic=y
@@ -303,6 +303,12 @@ CONFIG_SQLITE3_JSON1=y
 CONFIG_SQLITE3_RTREE=y
 CONFIG_STRONGSWAN_ROUTING_TABLE="220"
 CONFIG_STRONGSWAN_ROUTING_TABLE_PRIO="220"
+CONFIG_PACKAGE_appfilter=y
+CONFIG_PACKAGE_frpc=y
+CONFIG_PACKAGE_kmod-oaf=y
+CONFIG_PACKAGE_luci-app-frpc=y
+CONFIG_PACKAGE_luci-i18n-oaf-zh-cn=y
+CONFIG_PACKAGE_luci-app-oaf=y
 EOF
 
 # 设置固件大小:
