@@ -8,7 +8,7 @@
 #=================================================
 
 # 自定义定制选项
-sed -i 's/192.168.1.1/192.168.1.8/g' package/base-files/files/bin/#CONFIG_generate #定制默认IP
+sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/#CONFIG_generate #定制默认IP
 sed -i 's/o.default = "admin"/o.default = ""/g' lienol/luci-app-passwall/luasrc/model/cbi/passwall/balancing.lua #去除haproxy默认密码(最新版已无密码)
 
 # 添加第三方软件包
