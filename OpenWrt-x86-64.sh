@@ -58,11 +58,6 @@ touch ./.#CONFIG
 # 
 
 # 编译x64固件:
-cat >> .#CONFIG <<EOF
-#CONFIG_TARGET_x86=y
-#CONFIG_TARGET_x86_64=y
-#CONFIG_TARGET_x86_64_Generic=y
-EOF
 
 cat >> .#CONFIG <<EOF
 CONFIG_TARGET_x86=y
